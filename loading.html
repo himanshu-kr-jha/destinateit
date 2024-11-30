@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinate It</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Global Styling */
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Notification Banner */
+        #notification-banner {
+            background-color: #ffe6e9;
+            color: #fe424d;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 800;
+            border-bottom: 1px solid #fe424d;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .container h1 .highlight {
+            color: #fe424d;
+            display: block;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            color: #555;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: #fe424d;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff5f66;
+        }
+
+        /* Loading Message */
+        #loading-message {
+            display: none;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .spinner {
+            margin: 10px auto;
+            width: 50px;
+            height: 50px;
+            border: 6px solid #ffe6e9;
+            border-top: 6px solid #fe424d;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            /* padding:     0px 0; */
+            background-color: #ebebeb;
+            color: #fe424d;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .f-info-socials a {
+            margin: 0 5px;
+            color: #fe424d;
+            font-size: 1.5rem;
+        }
+
+        .f-info-socials a:hover {
+            color: #ff5f66;
+        }
+
+        .f-info-links a {
+            color: #fe424d;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .f-info-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 3rem;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container h1 {
+                font-size: 2rem;
+            }
+
+            .lead {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Notification Banner -->
+    <div id="notification-banner">
+        Our service is powered by a free plan and might take a bit longer to respond if inactive. Thank you for your
+        patience!
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div>
+            <h1>
+                <span class="welcome">Welcome to</span><br>
+                <span class="highlight">Destinate !t</span>
+            </h1>
+            <div id="loading-message">
+                <div class="spinner"></div>
+                <div id="quote-message">Adventure is worthwhile. – Aesop</div>
+                <p>Initializing... This might take a few extra seconds. Please hold on.</p>
+            </div>
+            <div id="info-head">
+                <p class="lead">Discover unique places that you'll love to visit and enjoy.</p>
+                <p>We have carefully curated spots that you won't regret exploring.</p>
+                <!-- Button to Call the API -->
+            </div>
+            <button onclick="callAPI()" class="btn btn-primary mt-3">Explore Now</button>
+        </div>
+    </div>
+
+    <!-- Loading Message -->
+    <!-- Loading Message -->
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="f-info">
+            <div class="f-info-socials mt-1">
+                <a href="https://www.instagram.com/stories/himanshu.kumar.jhaa/"><i
+                        class="fa-brands fa-square-facebook"></i></a>
+                <a href="https://www.instagram.com/stories/himanshu.kumar.jhaa/"><i
+                        class="fa-brands fa-square-instagram"></i></a>
+                <a href="https://www.instagram.com/stories/himanshu.kumar.jhaa/"><i
+                        class="fa-brands fa-square-x-twitter"></i></a>
+            </div>
+            <div class="f-info-brand mt-1"><b>Destinate !t</b></div>
+            <div class="f-mail"><i class="fa-solid fa-envelope"></i> <a
+                    href="mailto:destinateit.official@gmail.com">destinateit.official@gmail.com</a>
+            </div>
+            <div class="f-info-links mb-3">
+                <a href="/privacy">Privacy</a>&nbsp;&nbsp;&nbsp;
+                <a href="/terms">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Travel quotes array
+        const travelQuotes = [
+            "Traveling – it leaves you speechless, then turns you into a storyteller. – Ibn Battuta",
+            "The world is a book, and those who do not travel read only one page. – Saint Augustine",
+            "Not all those who wander are lost. – J.R.R. Tolkien",
+            "The journey not the arrival matters. – T.S. Eliot",
+            "Take only memories, leave only footprints. – Chief Seattle",
+            "Life is short and the world is wide. – Simon Raven",
+            "Adventure is worthwhile. – Aesop"
+        ];
+    
+        let quoteIndex = 0; // Track the current quote
+    
+        // Function to rotate quotes
+        function rotateQuotes() {
+            const quoteElement = document.getElementById('quote-message');
+            quoteElement.textContent = travelQuotes[quoteIndex];
+            quoteIndex = (quoteIndex + 1) % travelQuotes.length; // Loop through quotes
+        }
+    
+        // Function to call the API
+        async function callAPI() {
+    document.getElementById('loading-message').style.display = 'block';
+    document.getElementById('info-head').style.display = 'none';
+
+    try {
+        const response = await fetch('https://destinate.onrender.com/listing');
+        const contentType = response.headers.get('Content-Type');
+        console.log(response);
+        console.log('Content-Type:', contentType);  // Log Content-Type
+
+        if (response.ok) {
+            console.log("inside response ok")
+            if (contentType && contentType.includes('text/html')) {
+                // If the response is JSON, parse it as JSON
+                console.log("main if of text/html")
+                // const data = await response.json();
+                console.log("main if of text/html after data")
+                alert('API is ready! Redirecting...');
+                window.location.href = 'https://destinate.onrender.com/listing';
+            } 
+            else {
+                console.error('Unexpected content type:', contentType);
+                alert('Unexpected content type. Check the server.');
+            }
+        } else {
+            alert('Error: ' + response.statusText);
+        }
+    } catch (error) {
+        console.error('Error occurred:', error);
+        alert('An error occurred: ' + error.message);
+    } finally {
+        document.getElementById('loading-message').style.display = 'none';
+    }
+}
+
+    </script>
+    
+</body>
+
+</html>

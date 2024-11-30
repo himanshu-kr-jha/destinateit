@@ -222,54 +222,57 @@
             "Life is short and the world is wide. – Simon Raven",
             "Adventure is worthwhile. – Aesop"
         ];
-    
+
         let quoteIndex = 0; // Track the current quote
-    
+
         // Function to rotate quotes
         function rotateQuotes() {
             const quoteElement = document.getElementById('quote-message');
             quoteElement.textContent = travelQuotes[quoteIndex];
             quoteIndex = (quoteIndex + 1) % travelQuotes.length; // Loop through quotes
         }
-    
+
+        // Rotate quote every 4 seconds (4000 milliseconds)
+        setInterval(rotateQuotes, 4000);
+
         // Function to call the API
         async function callAPI() {
-    document.getElementById('loading-message').style.display = 'block';
-    document.getElementById('info-head').style.display = 'none';
+            document.getElementById('loading-message').style.display = 'block';
+            document.getElementById('info-head').style.display = 'none';
 
-    try {
-        const response = await fetch('https://destinate.onrender.com/listing');
-        const contentType = response.headers.get('Content-Type');
-        console.log(response);
-        console.log('Content-Type:', contentType);  // Log Content-Type
+            try {
+                const response = await fetch('https://destinate.onrender.com/listing');
+                const contentType = response.headers.get('Content-Type');
+                console.log(response);
+                console.log('Content-Type:', contentType);  // Log Content-Type
 
-        if (response.ok) {
-            console.log("inside response ok")
-            if (contentType && contentType.includes('text/html')) {
-                // If the response is JSON, parse it as JSON
-                console.log("main if of text/html")
-                // const data = await response.json();
-                console.log("main if of text/html after data")
-                alert('API is ready! Redirecting...');
-                window.location.href = 'https://destinate.onrender.com/listing';
-            } 
-            else {
-                console.error('Unexpected content type:', contentType);
-                alert('Unexpected content type. Check the server.');
+                if (response.ok) {
+                    console.log("inside response ok")
+                    if (contentType && contentType.includes('text/html')) {
+                        // If the response is JSON, parse it as JSON
+                        console.log("main if of text/html")
+                        // const data = await response.json();
+                        console.log("main if of text/html after data")
+                        window.location.href = 'https://destinate.onrender.com/listing';
+                        
+                    }
+                    else {
+                        console.error('Unexpected content type:', contentType);
+                        alert('Unexpected content type. Check the server.');
+                    }
+                } else {
+                    alert('Error: ' + response.statusText);
+                }
+            } catch (error) {
+                console.error('Error occurred:', error);
+                alert('An error occurred: ' + error.message);
+            } finally {
+                document.getElementById('loading-message').style.display = 'none';
             }
-        } else {
-            alert('Error: ' + response.statusText);
         }
-    } catch (error) {
-        console.error('Error occurred:', error);
-        alert('An error occurred: ' + error.message);
-    } finally {
-        document.getElementById('loading-message').style.display = 'none';
-    }
-}
 
     </script>
-    
+
 </body>
 
 </html>
